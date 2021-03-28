@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 )
 
 func main() {
 	fmt.Println("Hello")
 	m := []byte(`#!/bin/bash
 echo "Test Hook testing"`)
-	ioutil.WriteFile(".git/hooks/pre-commit", m, 0777) //TODO:
+	os.WriteFile(".git/hooks/pre-commit", m, 0777) //TODO:
+	os.Chmod(".git/hooks/pre-commit", 0777)
 }
